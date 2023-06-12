@@ -1,0 +1,32 @@
+body{
+    font-family: $fontFamily;
+}
+
+.row{
+    width: 100%;
+    box-sizing: border-box; 
+    margin: 30px 0;
+}
+
+.col{
+    box-sizing: border-box;
+    float: left;
+}
+
+.content__button{
+    display: flex;
+    justify-content: center;
+    background-color: $whitesmoke;
+    padding: 1rem;
+}
+
+// Botones
+
+@include generate-buttons('btn-teal', $whitesmoke, $teal, $bittersweet);
+@include generate-buttons('btn-bittersweet', $whitesmoke, $bittersweet, $teal);
+@include generate-buttons('btn-onyx', $whitesmoke, $onyx, $puce);
+
+// Titulos
+@include generate-titles('title-teal', $teal, 2rem, 700);
+@include generate-titles('title-bittersweet', $bittersweet, 1.5rem, 500);
+@include generate-titles('title-onyx', $onyx, 1.2rem, 400);

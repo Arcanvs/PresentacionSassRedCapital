@@ -1,0 +1,26 @@
+// Fuente
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+$fontFamily : 'Roboto', sans-serif;
+
+// Breakpoints
+$breakPoints: (
+    xl: "(min-width: 1280px)",
+    l:   "(min-width: 769px) and (max-width: 1279px)",
+	m:  "(min-width: 481px) and (max-width: 768px)",
+	s:   "(max-width: 480px)"
+);
+
+$breakPointsText: ( "xl", "l", "m", "s" );
+
+// Columnas
+$columnas: 12;
+
+// Colores
+$teal: #087E8B;
+$bittersweet: #FF5a5f;
+$onyx: #3c3c3c;
+$whitesmoke: #f5f5f5;
+$puce: #c1839f;
+
+
+    

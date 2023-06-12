@@ -1,0 +1,66 @@
+// Agrega media queries
+@mixin breakpoint($device) {
+    @if not map-has-key($breakPoints, $device) {
+      @error 'El valor (#{$device}) no existe';
+    } 
+   
+    @media #{map-get($breakPoints, $device)} {
+      @content;
+    }
+}
+
+// Generar columnas
+@mixin generate-cols($paddings,$screen,$color)
+{
+  @for $i from 1 through $columnas {
+    .col{
+        &.#{$screen}#{$i}{
+            width: calc((100% * $i) / $columnas);
+            padding: $paddings $paddings;
+            background-color: $color;
+        }
+    }
+  }
+}
+
+// Generar clases en media queries
+@each $screen in $breakPointsText{
+  @include breakpoint($screen){
+    @if $screen == "xl"{
+      @include generate-cols(2rem, 'xl', $teal);
+    }@else if $screen == "l"{
+      @include generate-cols(1rem, 'l', $bittersweet);
+    }@else if $screen == "m"{
+      @include generate-cols(1rem, 'm', $onyx);
+    }@else if $screen == "s"{
+      @include generate-cols(0.5rem, 's', $puce);
+    }
+  }
+}
+
+// Generar Botones
+@mixin generate-buttons($clase, $colorText, $colorBackground, $colorHover)
+{
+  .#{$clase}{
+    color: $colorText;
+    background-color: $colorBackground;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    &:hover{
+      background-color: $colorHover;
+    }
+  }
+}
+
+// Generar Titulos 
+@mixin generate-titles($clase, $color, $size, $weight)
+{
+  .#{$clase}{
+    color: $color;
+    font-size: $size;
+    font-weight: $weight;
+  }
+}
